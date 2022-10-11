@@ -93,7 +93,7 @@ class graphnn(object):
             self.optimizer = optimizer
     
     def say(self, string):
-        print string
+        print(string)
         if self.log_file != None:
             self.log_file.write(string+'\n')
     
@@ -108,7 +108,7 @@ class graphnn(object):
         self.log_file = None
         if (LOAD_PATH is not None):
             if LOAD_PATH == '#LATEST#':
-                checkpoint_path = tf.train.latest_checkpoint('./')
+                checkpoint_path = tf.train.latest_checkpoint('../')
             else:
                 checkpoint_path = LOAD_PATH
             saver.restore(sess, checkpoint_path)

@@ -9,7 +9,7 @@ Email: me@gentlecp.com
 Create Date: 2022/9/2
 -----------------End-----------------------------
 """
-from pathlib2 import Path
+from pathlib import Path
 from collections import OrderedDict, defaultdict
 import json
 import networkx as nx

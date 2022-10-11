@@ -1,6 +1,5 @@
 import numpy as np
 from sklearn.metrics import auc, roc_curve
-from graphnnSiamese import graphnn
 import json
 from tqdm import tqdm
 
@@ -245,7 +244,7 @@ def train_epoch(model, graphs, classes, batch_size, epoch, load_data=None):
 
 
 def get_auc_epoch(model, graphs, classes, batch_size, load_data=None):
-    print 'calculating auc...'
+    print('calculating auc...')
     tot_diff = []
     tot_truth = []
 

@@ -1,12 +1,13 @@
 #encoding=utf-8
 #无需学会idapython 的使用，直接调用该类下的接口即可获得函数
 #系统ida所在的路径
+from application.util import read_json
+
 idapath = '/home/cp/Application/idapro-7.5/idat64'
 import os,time,commands,json
 from pathlib2 import Path
 from tqdm import tqdm
 import argparse
-from collections import OrderedDict
 
 parse = argparse.ArgumentParser()
 import sys
@@ -34,7 +35,7 @@ class getFeature:
 
     def get_Feature_Function(self, func_name=''):
 
-        cmd = "TVHEADLESS=1 %s -A -S'%s/Feature_Of_Binary.py %s %s' %s" % (idapath, pro_path, self._tmpfile, func_name, self._bin)
+        cmd = "TVHEADLESS=1 %s -A -S'%s/Feature_Of_Binary_old.py %s %s' %s" % (idapath, pro_path, self._tmpfile, func_name, self._bin)
         # print cmd
         s,o = commands.getstatusoutput(cmd)
 
@@ -90,17 +91,6 @@ def extract_bin(binary_path):
     with open(str(out_file), 'w') as f:
         json.dump(func_name2features, f, indent=4)
 
-
-def read_json(fname):
-    fname = Path(fname)
-    with fname.open('rt') as handle:
-        return json.load(handle, object_hook=OrderedDict)
-
-
-def write_json(content, fname):
-    fname = Path(fname)
-    with fname.open('wt') as handle:
-        json.dump(content, handle, indent=4, sort_keys=False)
 
 def main():
     skip_suffix = {'.idb', '.idb64', '.id1', '.id0', '.id2', '.nam', '.til', '.i64', '.json'}

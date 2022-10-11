@@ -31,7 +31,7 @@ class getFeature:
 
     def get_Feature_Function(self, func_name):
 
-        cmd = "TVHEADLESS=1 %s -A -S'%s/Feature_Of_Binary.py %s %s' %s" % (idapath, pro_path, self._tmpfile, func_name, self._bin)
+        cmd = "TVHEADLESS=1 %s -A -S'%s/Feature_Of_Binary_old.py %s %s' %s" % (idapath, pro_path, self._tmpfile, func_name, self._bin)
         # print cmd
         s,o = commands.getstatusoutput(cmd)
 

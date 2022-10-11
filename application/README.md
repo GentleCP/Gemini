@@ -1,7 +1,10 @@
 
-# ACFG Extraction For Gemini
-paper "Neural Network-based Graph Embedding for Cross-Platform Binary Code Similarity Detection"
+# ACFG feature extraction
+- require: python3.6+
+- packages: `cptools, networkx, tqdm`
 
+1. run `extract_gemini_feat.py`
+2. 
 ## Supported Instruction Sets
 X86,X64,ARM,MIPS,PowerPC
 
